@@ -1,0 +1,33 @@
+<?php
+/*
+ * @Author: dashing
+ * @Date: 2020/9/3 15:26
+ */
+
+namespace app\client\controller;
+
+
+use think\App;
+
+/**
+ * Class BaseController
+ * @package app\client\controller
+ */
+abstract class BaseController extends \app\common\controller\BaseController
+{
+	/**
+	 * @var \app\common\model\User 登录用户模型
+	 */
+	protected $user;
+
+	/**
+	 * BaseController constructor.
+	 * @param App $app
+	 */
+	public function __construct(App $app)
+	{
+		parent::__construct($app);
+
+		$this->user = $app->clientUser ?? null;
+	}
+}
